@@ -11,7 +11,7 @@ class Product(db.Model):
         self.name = name
         self.description = description
 
-    # Return a serializable object
+    # Return Product object
     def get_object(self):
         return {
             'id': self.id, 

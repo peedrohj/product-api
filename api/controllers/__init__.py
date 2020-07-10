@@ -1,1 +1,1 @@
-from .product import create_product, get_product, list_product
+from .product import create_product, get_product, list_product, delete_product

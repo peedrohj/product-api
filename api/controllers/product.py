@@ -56,6 +56,10 @@ def create_product():
 
 @app.route("/delete/product/<id_>", methods=['GET', 'POST'])
 def delete_product(id_):
+    """
+        This route will recive an id and delete a product by this id
+    """
+
     try:
         product = Product.query.filter_by(id=id_).first()
 
