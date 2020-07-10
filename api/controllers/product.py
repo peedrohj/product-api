@@ -27,8 +27,10 @@ def get_product(id_):
     try:
         product = Product.query.filter_by(id=id_).first()
 
-        return jsonify({"status": "success", "data": product.get_object()})
-
+        if(product):
+            return jsonify({"status": "success", "data": product.get_object()})
+        # else:
+        #     return jsonify({"status": "error", "error": "Don't have any product with this id"})
     except Exception as error:
         return jsonify({"status": "error", "error": str(error)})
 

@@ -6,7 +6,7 @@
     "contact": {
       "email": "phjfarias@hotmail.com"
     },
-    "description": "This is a simple product api, that can peform basic APIs operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
+    "description": "This is a simple product api, that can peform basic CRUD operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -42,27 +42,25 @@
                       "type": "String"
                     },
                     "data": {
-                      "type": "array",
-                      "items": {
+                      "type": "object",
+                      "properties": {
                         "$ref": "#/components/schemas/product"
                       }
                     }
                   },
                   "example": {
                     "status": "success",
-                    "data": [
-                      {
-                        "id": 1,
-                        "name": "Product 1",
-                        "description": "Just an example of a descritption."
-                      }
-                    ]
+                    "data": {
+                      "id": 1,
+                      "name": "Product 1",
+                      "description": "Just an example of a descritption."
+                    }
                   }
                 }
               }
             }
           },
-          "400": {
+          "4XX": {
             "description": "Bad request syntax or unsupported method.",
             "content": {
               "application/json": {
@@ -85,6 +83,159 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product/get/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the product",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Products"],
+        "summary": "Returns a list of products",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/product"
+                      }
+                    }
+                  },
+                  "example": {
+                    "status": "success",
+                    "data": [
+                      {
+                        "id": 1,
+                        "name": "Product 1",
+                        "description": "Just an example of a descritption."
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Bad request syntax or unsupported method.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Error description"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Error description"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product/create?name={name}&description={description}": {
+      "parameters": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "Name of the product",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "in": "path",
+          "required": true,
+          "description": "Description of the product",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "tags": ["Products"],
+        "summary": "Create a product",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "success",
+                    "data": "Create product with success"
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Bad request syntax or unsupported method.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Error description"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Error description"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
