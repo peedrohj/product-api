@@ -341,6 +341,20 @@
             }
           }
         }
+      },
+      "error response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "format": "string"
+          },
+          "error": {
+            "type": "string",
+            "format": "string",
+            "description": "Error description"
+          }
+        }
       }
     }
   }
