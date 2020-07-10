@@ -199,12 +199,21 @@
                       "type": "string"
                     },
                     "data": {
-                      "type": "string"
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/product"
+                      }
                     }
                   },
                   "example": {
                     "status": "success",
-                    "data": "Create product with success"
+                    "data": [
+                      {
+                        "id": 1,
+                        "name": "Returns the name of the product",
+                        "description": "Returns the description of the product"
+                      }
+                    ]
                   }
                 }
               }

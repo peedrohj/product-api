@@ -49,8 +49,8 @@ def create_product():
 
         db.session.add(product)
         db.session.commit()
-
-        return jsonify({"status": "success", "data": "Create product with success"})
+        
+        return jsonify({"status": "success", "data": product.get_object()})
 
     except Exception as error:
         return jsonify({"status": "error", "error": str(error)})
