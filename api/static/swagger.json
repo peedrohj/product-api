@@ -166,18 +166,18 @@
         }
       }
     },
-    "/product/create?name={name}&description={description}": {
+    "/product/create": {
       "parameters": [
         {
           "name": "name",
-          "in": "path",
+          "in": "query",
           "required": true,
           "description": "Name of the product",
           "type": "string"
         },
         {
           "name": "description",
-          "in": "path",
+          "in": "query",
           "required": true,
           "description": "Description of the product",
           "type": "string"
