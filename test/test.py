@@ -40,15 +40,25 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(request.status_code, 200)
         self.assertEqual(request_obj['data']['name'], self.PROCUT_OBJ['name'])
 
-
-    # GET request to /product/get_all returns all products
-
-    def test_get_one_products(self):
-        request = requests.get(f'{BASE_PRODUCTS_URL}/get/', params={})
+    # GET request to /product/get/<id> returns one product
+    def test_get_one_product(self):
+        product_id = self.PROCUT_OBJ["id"]
+        request = requests.get(
+            f'{BASE_PRODUCTS_URL}/get/{product_id}')
         request_obj = request.json()
 
         self.assertEqual(request.status_code, 200)
-        self.assertEqual(list(request_obj.keys()), ['data', 'status'])
+        self.assertEqual(request_obj['data']['name'], self.PROCUT_OBJ['name'])
+
+    # GET request to /product/get/<id> returns one product
+    def teste_delete_one_product(self):
+        product_id = self.PROCUT_OBJ["id"]
+        request = requests.delete(
+            f'{BASE_PRODUCTS_URL}/delete/{product_id}')
+        request_obj = request.json()
+
+        self.assertEqual(request.status_code, 200)
+        self.assertEqual(request_obj['status'], 'success')
 
 
 if __name__ == "__main__":
