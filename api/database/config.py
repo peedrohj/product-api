@@ -1,0 +1,9 @@
+# Database configurations
+
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="password"
+POSTGRES_HOST="localhost"
+POSTGRES_PORT="5432"
+POSTGRES_DB="products"
+
+DATABASE_CONNECTION_URI = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}' 
