@@ -42,19 +42,21 @@
                       "type": "String"
                     },
                     "data": {
-                      "type": "object",
-                      "properties": {
+                      "type": "array",
+                      "items": {
                         "$ref": "#/components/schemas/product"
                       }
                     }
                   },
                   "example": {
                     "status": "success",
-                    "data": {
-                      "id": 1,
-                      "name": "Product 1",
-                      "description": "Just an example of a descritption."
-                    }
+                    "data": [
+                      {
+                        "id": 1,
+                        "name": "Product 1",
+                        "description": "Just an example of a descritption."
+                      }
+                    ]
                   }
                 }
               }
@@ -116,21 +118,19 @@
                       "type": "string"
                     },
                     "data": {
-                      "type": "array",
-                      "items": {
+                      "type": "object",
+                      "properties": {
                         "$ref": "#/components/schemas/product"
                       }
                     }
                   },
                   "example": {
                     "status": "success",
-                    "data": [
-                      {
-                        "id": 1,
-                        "name": "Product 1",
-                        "description": "Just an example of a descritption."
-                      }
-                    ]
+                    "data": {
+                      "id": 1,
+                      "name": "Product 1",
+                      "description": "Just an example of a descritption."
+                    }
                   }
                 }
               }
@@ -199,21 +199,21 @@
                       "type": "string"
                     },
                     "data": {
-                      "type": "array",
-                      "items": {
+                      "type": "object",
+                      "properties": {
                         "$ref": "#/components/schemas/product"
                       }
                     }
                   },
                   "example": {
                     "status": "success",
-                    "data": [
+                    "data": 
                       {
                         "id": 1,
                         "name": "Returns the name of the product",
                         "description": "Returns the description of the product"
                       }
-                    ]
+                    
                   }
                 }
               }
