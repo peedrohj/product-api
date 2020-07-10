@@ -1,13 +1,29 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Blueprint
 from api.database import DATABASE_CONNECTION_URI
 from flask_sqlalchemy import SQLAlchemy
 from api import models
+from flask_swagger_ui import get_swaggerui_blueprint
 
-# App configurations
 app = Flask(__name__)
 
-# DEBUG MODE
-app.config["DEBUG"] = True  
+# App configurations
+app.config["DEBUG"] = True
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_CONNECTION_URI
 
+# Configure Swagger
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        "app_name": "Product API"
+    }
+)
+
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+
+# Configure database
 db = SQLAlchemy(app)
+

@@ -2,7 +2,7 @@ from api import app, jsonify, db, request
 from api.models.product import Product
 
 
-@app.route("/get/all_products", methods=['GET'])
+@app.route("/product/get_all", methods=['GET'])
 def list_product():
     """
         This route will return all products
@@ -18,7 +18,7 @@ def list_product():
         return jsonify({"status": "error", "error": str(error)})
 
 
-@app.route("/get/product/<id_>", methods=['GET'])
+@app.route("/product/get/<id_>", methods=['GET'])
 def get_product(id_):
     """
         This route will recive an id and return a product that have this id
@@ -33,7 +33,7 @@ def get_product(id_):
         return jsonify({"status": "error", "error": str(error)})
 
 
-@app.route("/create/product", methods=['GET', 'POST'])
+@app.route("/product/create", methods=['GET', 'POST'])
 def create_product():
     """
         This route will recive a name and a description and save it in database
@@ -54,7 +54,7 @@ def create_product():
         return jsonify({"status": "error", "error": str(error)})
 
 
-@app.route("/delete/product/<id_>", methods=['GET', 'POST'])
+@app.route("/product/delete/<id_>", methods=['GET', 'POST'])
 def delete_product(id_):
     """
         This route will recive an id and delete a product by this id

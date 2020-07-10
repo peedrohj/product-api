@@ -1,0 +1,236 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Product API",
+    "contact": {
+      "email": "phjfarias@hotmail.com"
+    },
+    "description": "This is a simple product api, that can peform basic APIs operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "API server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Products operations"
+    }
+  ],
+  "paths": {
+    "/product/get_all": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Returns a list of products",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "String"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/product"
+                      }
+                    }
+                  },
+                  "example": {
+                    "status": "success",
+                    "data": [
+                      {
+                        "id": 1,
+                        "name": "Product 1",
+                        "description": "Just an example of a descritption."
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request syntax or unsupported method.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Error description"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Error description"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/request/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cat that we want to match",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Products"],
+        "summary": "Get book request with given ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Book Request id",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bookRequest"
+            }
+          },
+          "400": {
+            "description": "Bad request syntax or unsupported method."
+          },
+          "404": {
+            "description": "Failed. Book request not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "edit a book request by ID",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Book Request id",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Book Request Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bookRequest"
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bookRequest"
+            }
+          },
+          "400": {
+            "description": "Bad request syntax or unsupported method."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Book Request by ID",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Book Request Id",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "400": {
+            "description": "Bad request syntax or unsupported method."
+          },
+          "404": {
+            "description": "Failed. Book Request not found."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "Integer"
+          },
+          "name": {
+            "type": "string",
+            "format": "string"
+          },
+          "description": {
+            "type": "string",
+            "format": "string"
+          }
+        }
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "format": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/product"
+            }
+          }
+        }
+      }
+    }
+  }
+}
