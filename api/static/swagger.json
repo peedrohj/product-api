@@ -6,7 +6,7 @@
     "contact": {
       "email": "phjfarias@hotmail.com"
     },
-    "description": "This is a simple product api, that can peform basic CRUD operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
+    "description": "This is a simple product api that can peform basic CRUD operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -102,7 +102,7 @@
       ],
       "get": {
         "tags": ["Products"],
-        "summary": "Returns a list of products",
+        "summary": "Return a product",
         "responses": {
           "200": {
             "description": "OK",
@@ -252,7 +252,7 @@
       ],
       "delete": {
         "tags": ["Products"],
-        "summary": "Create a product",
+        "summary": "Delete a product",
         "responses": {
           "200": {
             "description": "OK",
