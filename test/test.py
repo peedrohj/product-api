@@ -25,7 +25,7 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(request.status_code, 200)
         self.assertEqual(list(request_obj.keys()), ['data', 'status'])
 
-    # POST request to /product/cereate returns a message with the was created wiht success
+    # POST request to /product/cereate returns the object created
     def test_create_product(self):
         request = requests.post(
             f'{BASE_PRODUCTS_URL}/create',
