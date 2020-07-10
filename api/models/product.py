@@ -6,10 +6,12 @@ class Product(db.Model):
     name = db.Column(db.String(60))
     description = db.Column(db.Text())
 
+    # Create object
     def __init__(self, name, description):
         self.name = name
         self.description = description
 
+    # Return a serializable object
     def get_object(self):
         return {
             'id': self.id, 
