@@ -240,109 +240,69 @@
         }
       }
     },
-    "/request/{id}": {
+    "/product/delete/{id}": {
       "parameters": [
         {
           "name": "id",
           "in": "path",
           "required": true,
-          "description": "ID of the cat that we want to match",
-          "type": "string"
+          "description": "ID of the product",
+          "type": "integer"
         }
       ],
-      "get": {
+      "delete": {
         "tags": ["Products"],
-        "summary": "Get book request with given ID",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          }
-        ],
+        "summary": "Create a product",
         "responses": {
           "200": {
             "description": "OK",
-            "schema": {
-              "$ref": "#/components/schemas/bookRequest"
-            }
-          },
-          "400": {
-            "description": "Bad request syntax or unsupported method."
-          },
-          "404": {
-            "description": "Failed. Book request not found."
-          }
-        }
-      },
-      "put": {
-        "summary": "edit a book request by ID",
-        "tags": ["Products"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Book Request Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bookRequest"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "success",
+                    "data": "Delete product with success"
+                  }
+                }
               }
             }
-          }
-        },
-        "produces": ["application/json"],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/components/schemas/bookRequest"
+          },
+          "4XX": {
+            "description": "Bad request syntax or unsupported method.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "description": "Resquest status",
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Error description"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Error description"
+                }
+              }
             }
           },
-          "400": {
-            "description": "Bad request syntax or unsupported method."
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Book Request by ID",
-        "tags": ["Products"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request Id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          },
-          "400": {
-            "description": "Bad request syntax or unsupported method."
-          },
-          "404": {
-            "description": "Failed. Book Request not found."
+          "500": {
+            "description": "Internal server error"
           }
         }
       }

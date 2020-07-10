@@ -56,7 +56,7 @@ def create_product():
         return jsonify({"status": "error", "error": str(error)})
 
 
-@app.route("/product/delete/<id_>", methods=['GET', 'POST'])
+@app.route("/product/delete/<id_>", methods=['GET', 'POST', 'DELETE'])
 def delete_product(id_):
     """
         This route will recive an id and delete a product by this id
