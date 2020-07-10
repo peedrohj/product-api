@@ -6,7 +6,7 @@
     "contact": {
       "email": "phjfarias@hotmail.com"
     },
-    "description": "This is a simple product api that can peform basic CRUD operations(create, read, update and delete). The source code can be found here: https://github.com/Peedrohj/product-api",
+    "description": "This is a simple product API that can perform basic CRUD operations. The source code can be found here: https://github.com/Peedrohj/product-api",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
