@@ -48,7 +48,7 @@ This api use swagger as documentation, you can simple see that by navigating to 
 
 ## Testing 
 
-I wrote some basic tests to the api, and if you wanna running it folow the process bellow.
+I wrote some basic tests to the api, and if you want to run it, folow the process bellow.
 
 * **First:**
 
