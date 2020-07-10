@@ -22,10 +22,5 @@ For this API i used a docker instace for postgres, you can se how to do that [he
 > **Note**: You need update the code to your database credentials, you can do that navigating to api/database/config.py and update with your configurations.
 
 ### Installation
-This library is distributed on `npm`. In order to add it as a dependency, run the following command:
-
-``` sh
-$ npm install googleapis
-```
 
 
