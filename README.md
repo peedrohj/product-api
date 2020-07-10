@@ -30,11 +30,11 @@ POSTGRES_HOST="localhost"
 POSTGRES_PORT="5432"
 ```
 
-And connect to a database called products.
-> **Note**: You can change that with the same method listed above
+And connect to a database called "products".
+> **Note**: You can change that with the same method listed above and update the variable called "POSTGRES_DB".
 
 ### Running 
-To running this API you can simple open your terminal and type this command in the root folder of this project.
+To execute this API you can simple open your terminal and type this command in the root folder of this project.
 
 ``` sh
 $ python3 app.py 
@@ -52,7 +52,7 @@ I wrote some basic tests to the api, and if you wanna running it folow the proce
 
 * **First:**
 
-You need to certify that you're running the API. If not, you can simple do it by running this commnad in the root folder of the project.
+You need to certify that the API is running. If not, you can simple do it by typing this commnad in the root folder of the project.
 
 ``` sh
 $ python3 app.py 
