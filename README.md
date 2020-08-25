@@ -13,15 +13,15 @@ You can simple do that by running this command in the root folder of this projec
 $ pip install -r requirements.txt 
 ```
 
-> **Note**: It's recommended to use a virtual envoirement, you can see more about that [here](https://virtualenv.pypa.io/en/latest/installation.html).
+> **Note**: It's recommended to use a virtual environment, you can see more about that [here](https://virtualenv.pypa.io/en/latest/installation.html).
 
 *  Next, you need to setup a postgres instace.
 
 For this API i used a docker instace for postgres, you can se how to do that [here](https://hub.docker.com/_/postgres)
 
-> **Note**: You need update the code to use your database credentials, you can do that by navigating to api/database/config.py and update it with your credentials.
+> **Note**: You need change the code to use your database credentials, you can do that by navigating to api/database/config.py and update it with your credentials.
 
-For default the code will try to connect to database with these configutaions
+For default the app will try to connect to database with these configurations
 
 ``` python
 POSTGRES_USER="postgres"
@@ -39,7 +39,7 @@ To execute this API you can simple open your terminal and type this command in t
 ``` sh
 $ python3 app.py 
 ```
-Now the project is alredy running, for default it will start on: http://127.0.0.1:5000/
+Now the project is alredy running, and for default it will start on: http://127.0.0.1:5000/
 
 ## Documentation
 
@@ -48,23 +48,23 @@ This api use swagger as documentation, you can simple see that by navigating to 
 
 ## Testing 
 
-I wrote some basic tests to the api, and if you want to run it, folow the process bellow.
+I wrote some unit tests to this api, and if you want to run it, folow the process bellow.
 
 * **First:**
 
-You need to certify that the API is running. If not, you can simple do it by typing this commnad in the root folder of the project.
+You need to certify that the API is running. If not, you can simple do it by typing this commnad in the root folder of this project.
 
 ``` sh
 $ python3 app.py 
 ```
 
 * **Second:**
-Now you can run those tests with a simple command.
+Now, open another terminal, and run this tests with a simple command in the root folder of this project.
 
 ``` sh
 $ python3 test/test.py 
 ```
 
-> **Note**: If you want see the code navigate to test/test.py
+> **Note**: If you want see more about those tests navigate to test/test.py
 
 
